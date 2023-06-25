@@ -22,19 +22,19 @@
         console.log(tableValues)
         const dispatch = useAppDispatch()
         const columns: Column<TableData>[] = useMemo(()=>[{
-            Header: "TIME STEP",
+            Header: "ВРЕМЯ ",
             accessor: "timestep"
         },
             {
-                Header: "CURRENT VALUE",
+                Header: "ТЕКУЩЕЕ ЗНАЧЕНИЕ",
                 accessor: "currentValue"
             },
             {
-                Header: "PREVIOUS VALUE",
+                Header: "ПРЕДЫДУЩИЕ ЗНАЧЕНИЕ",
                 accessor: "prevValue"
             },
             {
-                Header: "CHANGE",
+                Header: "ИЗМЕНЕНИЕ",
                 accessor: "change"
             }], [])
 
@@ -73,22 +73,26 @@
 
     const Table = styled.table`
       display: block;
+      width: 100%;
+      
       tbody {
         display: block;
         overflow-y: auto;
-        height: 296px;
+        height: 470px;
       }
       thead,
       tr {
         display: table;
+       
         width: 100%;
         table-layout: fixed;
       }
       th,
       td {
         padding: 5px;
-        text-align: left;
-        width: 25%;
+        text-align: center;
+        width: 40%;
+        
       }
       th:first-child,
       td:first-child {

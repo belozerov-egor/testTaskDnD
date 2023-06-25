@@ -8,17 +8,21 @@ import {
     Draggable,
     DropResult,
 } from "react-beautiful-dnd";
+import {TableWidget} from "./widget/TableWidget.tsx";
+import {ControlWidget} from "./widget/ControlWidget.tsx";
+
+
 
 type BlockType = {
     id: string;
-    content: JSX.Element;
+    content?: JSX.Element;
 };
 
 export const Content = () => {
-    const [workBlocks, setWorkBlocks] = useState<BlockType[]>([]);
+    const [workBlocks, setWorkBlocks] = useState<BlockType[]>([ ]);
     const [menuBlocks, setMenuBlocks] = useState<BlockType[]>([
-        { id: "control", content: <ControlBlock /> },
-        { id: "table", content: <TableBlock /> },
+        { id: "control", content: <ControlWidget/> },
+        { id: "table", content: <TableWidget/> },
     ]);
 
     const handleDragEnd = (result: DropResult) => {
@@ -27,17 +31,56 @@ export const Content = () => {
         }
 
         const sourceIndex = result.source.index;
+        const destinationIndex = result.destination.index;
 
         if (
-            result.source.droppableId === "menuBlock" &&
-            result.destination.droppableId === "workBlock"
+            result.source.droppableId === 'menuBlock' &&
+            result.destination.droppableId === 'workBlock'
         ) {
             const block = menuBlocks[sourceIndex];
+
             setMenuBlocks((blocks) => [
                 ...blocks.slice(0, sourceIndex),
                 ...blocks.slice(sourceIndex + 1),
             ]);
-            setWorkBlocks((blocks) => [...blocks, block]);
+
+            const updatedBlock: BlockType = { id: block.id };
+
+            if (block.id === 'control') {
+                updatedBlock.content = <ControlBlock />;
+            } else if (block.id === 'table') {
+                updatedBlock.content = <TableBlock />;
+            }
+
+            setWorkBlocks((blocks) => [
+                ...blocks.slice(0, destinationIndex),
+                updatedBlock,
+                ...blocks.slice(destinationIndex),
+            ]);
+        } else if (
+            result.source.droppableId === 'workBlock' &&
+            result.destination.droppableId === 'menuBlock'
+        ) {
+            const block = workBlocks[sourceIndex];
+
+            setWorkBlocks((blocks) => [
+                ...blocks.slice(0, sourceIndex),
+                ...blocks.slice(sourceIndex + 1),
+            ]);
+
+            const updatedBlock: BlockType = { id: block.id };
+
+            if (block.id === 'control') {
+                updatedBlock.content = <ControlWidget />;
+            } else if (block.id === 'table') {
+                updatedBlock.content = <TableWidget />;
+            }
+
+            setMenuBlocks((blocks) => [
+                ...blocks.slice(0, destinationIndex),
+                updatedBlock,
+                ...blocks.slice(destinationIndex),
+            ]);
         }
     };
 
@@ -117,8 +160,8 @@ const ContentBlock = styled.div`
         gap: 15px;
         flex-wrap: wrap;
         li {
-            width: 389px;
-            height: 389px;
+            width: 550px;
+            height: 550px;
             border: 1px solid black;
         }
     }
@@ -126,12 +169,9 @@ const ContentBlock = styled.div`
         width: 296px;
         height: 827px;
         background-color: white;
+        align-items: center;
         li {
-            width: 252px;
-            height: 252px;
-            background-color: green;
             list-style: none;
-            border: 1px solid black;
         }
     }
 `;

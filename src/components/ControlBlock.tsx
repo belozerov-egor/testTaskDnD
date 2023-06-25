@@ -43,7 +43,7 @@ const Control = styled.div`
   border-radius: 50%;
   overflow: hidden;
   & span{
-    font-size: 40px;
+    //font-size: 40px;
     font-weight: 400;
   }
   .currentBlock{
