@@ -3,6 +3,7 @@ import './App.css'
 import {Header} from './components/Header'
 import {SideBar} from './components/SideBar'
 import {Content} from './components/Content'
+import {Routes, Route} from "react-router-dom";
 
 
 function App() {
@@ -13,8 +14,9 @@ function App() {
     <Header/>
     <MainBlock>
       <SideBar/>
-      <Content/>
-
+      <Routes>
+        <Route path={'/panel'} element={<Content/>}/>
+      </Routes>
     </MainBlock>
     </>
   )
