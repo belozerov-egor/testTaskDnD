@@ -15,7 +15,7 @@ function App() {
     <MainBlock>
       <SideBar/>
       <Routes>
-        <Route path={'/panel'} element={<Content/>}/>
+        <Route path={'/testTaskDnD/panel'} element={<Content/>}/>
       </Routes>
     </MainBlock>
     </>

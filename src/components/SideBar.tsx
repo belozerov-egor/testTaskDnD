@@ -5,7 +5,7 @@ import panelIcon from "../img/panelIcon.svg";
 export const SideBar = () => {
     return (
         <SideBarBlock>
-            <NavLink to="/panel" className={'menuIconBlock'}>
+            <NavLink to="/testTaskDnD/panel" className={'menuIconBlock'}>
                 <img src={panelIcon} alt="panelIcon"/>
                 <span>Панель</span>
             </NavLink>
