@@ -1,10 +1,10 @@
-    import {memo, useEffect, useMemo} from "react";
-    import {useAppDispatch, useAppSelector} from "../hook/hook";
-    import {tableThunks} from "../reducers/tableReducer";
-    import {Column, useTable} from "react-table";
-    import {styled} from "styled-components";
+import {memo, useEffect, useMemo} from "react";
+import {useAppDispatch, useAppSelector} from "../hook/hook";
+import {tableThunks} from "../reducers/tableReducer";
+import {Column, useTable} from "react-table";
+import {styled} from "styled-components";
 
-    type TableData = {
+type TableData = {
         timestep: Date;
         currentValue: number;
         prevValue: number;
@@ -43,7 +43,14 @@
 
         useEffect(() => {
             dispatch(tableThunks.getTableValues())
-        }, [])
+            const interval = setInterval(() => {
+                dispatch(tableThunks.getTableValues());
+            }, 60000);
+
+            return () => {
+                clearInterval(interval);
+            };
+        }, []);
         return (
             <Table {...getTableProps()}>
                 <thead>
@@ -73,17 +80,19 @@
 
     const Table = styled.table`
       display: block;
-      width: 100%;
+      width: 600px;
       
       tbody {
         display: block;
         overflow-y: auto;
         height: 470px;
       }
+      thead{
+        background: #005fb8;
+        color: white;}
       thead,
       tr {
         display: table;
-       
         width: 100%;
         table-layout: fixed;
       }

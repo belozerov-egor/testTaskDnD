@@ -4,6 +4,7 @@ import {Header} from './components/Header'
 import {SideBar} from './components/SideBar'
 import {Content} from './components/Content'
 
+
 function App() {
 
 
@@ -13,6 +14,7 @@ function App() {
     <MainBlock>
       <SideBar/>
       <Content/>
+
     </MainBlock>
     </>
   )

@@ -10,6 +10,9 @@ import {
 } from "react-beautiful-dnd";
 import {TableWidget} from "./widget/TableWidget.tsx";
 import {ControlWidget} from "./widget/ControlWidget.tsx";
+import {GraphWidget} from "./widget/GraphWidget.tsx";
+import {GraphBlock} from "./GraphBlock.tsx";
+import button from "../img/menu.svg"
 
 
 
@@ -23,7 +26,9 @@ export const Content = () => {
     const [menuBlocks, setMenuBlocks] = useState<BlockType[]>([
         { id: "control", content: <ControlWidget/> },
         { id: "table", content: <TableWidget/> },
+        { id: "graph", content: <GraphWidget/> },
     ]);
+    const [visible, setVisible ] = useState<boolean>(true);
 
     const handleDragEnd = (result: DropResult) => {
         if (!result.destination) {
@@ -50,6 +55,8 @@ export const Content = () => {
                 updatedBlock.content = <ControlBlock />;
             } else if (block.id === 'table') {
                 updatedBlock.content = <TableBlock />;
+            } else if (block.id === 'graph') {
+                updatedBlock.content = <GraphBlock />;
             }
 
             setWorkBlocks((blocks) => [
@@ -74,6 +81,8 @@ export const Content = () => {
                 updatedBlock.content = <ControlWidget />;
             } else if (block.id === 'table') {
                 updatedBlock.content = <TableWidget />;
+            }else if (block.id === 'graph') {
+                updatedBlock.content = <GraphWidget />;
             }
 
             setMenuBlocks((blocks) => [
@@ -83,7 +92,6 @@ export const Content = () => {
             ]);
         }
     };
-
     return (
         <ContentBlock>
             <DragDropContext onDragEnd={handleDragEnd}>
@@ -115,7 +123,7 @@ export const Content = () => {
                         </ul>
                     )}
                 </Droppable>
-                <Droppable droppableId="menuBlock">
+                {visible && <Droppable droppableId="menuBlock">
                     {(provided) => (
                         <ul
                             className="menuBlock"
@@ -142,36 +150,45 @@ export const Content = () => {
                             {provided.placeholder}
                         </ul>
                     )}
-                </Droppable>
+                </Droppable>}
             </DragDropContext>
+            <button onClick={()=> setVisible(!visible)}><img src={button}/></button>
         </ContentBlock>
     );
 };
 
 const ContentBlock = styled.div`
-    display: flex;
-    padding: 20px 20px;
-    width: 100%;
-    background-color: lightgray;
+  display: flex;
+  padding: 20px 20px;
+  width: 100%;
+  background-color: #E0F1FF;
+  position: relative;
 
-    .workBlock {
-        width: 80%;
-        display: flex;
-        gap: 15px;
-        flex-wrap: wrap;
-        li {
-            width: 550px;
-            height: 550px;
-            border: 1px solid black;
-        }
-    }
-    .menuBlock {
-        width: 296px;
-        height: 827px;
-        background-color: white;
-        align-items: center;
-        li {
-            list-style: none;
-        }
-    }
+  .workBlock {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .menuBlock {
+    width: 296px;
+    height: 827px;
+    border-radius: 15px;
+    background-color: #FFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 83px;
+    right: 20px;
+  }
+  button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    background-color: transparent;
+  }
 `;

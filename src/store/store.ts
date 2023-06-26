@@ -2,10 +2,12 @@ import {AnyAction, applyMiddleware, combineReducers, legacy_createStore as creat
 import thunk, {ThunkAction, ThunkDispatch} from "redux-thunk";
 import { controlReducer } from "../reducers/controlReducer";
 import { tableReducer } from "../reducers/tableReducer";
+import {graphReducer} from "../reducers/graphReducer.ts";
 
 const RootReducers = combineReducers({
     control: controlReducer,
-    table: tableReducer
+    table: tableReducer,
+    graph: graphReducer
 })
 
 

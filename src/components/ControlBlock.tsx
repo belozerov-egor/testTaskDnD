@@ -8,6 +8,7 @@ export const ControlBlock = memo(() => {
     const dispatch = useAppDispatch();
 
     useEffect(() => {
+        dispatch(controlThunks.getControlValues());
         const interval = setInterval(() => {
             dispatch(controlThunks.getControlValues());
         }, 5000);
@@ -18,12 +19,12 @@ export const ControlBlock = memo(() => {
     }, []);
 
     return (
-        <Control>
-            <div className='currentBlock'>
-                <span>Цена</span>
+        <Control currentValue={control.currentValue} max={control.maxValue} min={control.minValue}>
+            <CurrentBlock>
+                <span className="price">Цена</span>
                 <div>{control.currentValue}</div>
                 <span>руб./кВт*ч</span>
-            </div>
+            </CurrentBlock>
             <div className='footerBlock'>
                 <span>5 руб./кВт*ч</span>
                 <span>План</span>
@@ -31,53 +32,70 @@ export const ControlBlock = memo(() => {
         </Control>
     );
 });
-
-const Control = styled.div`
+type ControlBlockType = {
+    currentValue: number
+    min: number
+    max: number
+}
+const Control = styled.div<ControlBlockType>`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  background-color: white;
+  justify-content: space-between;
+  width: 400px;
+  height: 400px;
+  background-color: ${(props) => props.currentValue <= props.min
+          ? 'red'
+          : props.currentValue <= 4.5
+                  ? 'orange'
+                  : props.currentValue >= props.max
+                          ? 'limegreen'
+                          : '#FFF'};
   border-radius: 50%;
   overflow: hidden;
-  & span{
-    //font-size: 40px;
+
+  .price {
+    color: #005FB8;
+  }
+
+  & span {
     font-weight: 400;
   }
-  .currentBlock{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 218px;
-    font-size: 100px;
-    font-weight: 400;
-    div {
-      margin: 0;
-    }
-    & span {
-      margin-top: -30px;
-      font-size: 30px;
-      font-weight: 400;
-    }
-  }
+
   .footerBlock {
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
     align-items: center;
-    border-radius: 50%;
-    margin-top: 4px;
-    background: #005FB8;
-    div {
-      margin: 0;
-    }
-    & span {
-      font-size: 30px;
-      font-weight: 300;
-    }
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    width: 100%; /* добавить ширину */
+    background: #005fb8;
+    color: #FFFFFF;
+    font-size: 30px;
+    width: 100%;
+    height: 100px;
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%;
   }
+
 `;
+
+
+const CurrentBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-top: 60px;
+
+  div {
+    margin-top: -20px;
+    margin-bottom: -30px;
+    font-size: 90px;
+    font-weight: 400;
+  }
+
+  & span {
+    font-size: 35px;
+    font-weight: 400;
+  }
+
+`
