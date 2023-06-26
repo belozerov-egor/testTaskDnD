@@ -1,12 +1,12 @@
-import { NavLink } from "react-router-dom";
-import { styled } from "styled-components";
+import {NavLink} from "react-router-dom";
+import {styled} from "styled-components";
 import panelIcon from "../img/panelIcon.svg";
 
 export const SideBar = () => {
     return (
         <SideBarBlock>
-            <NavLink  to="/panel"  className={'menuIconBlock'}>
-                <img src={panelIcon} alt="panelIcon" />
+            <NavLink to="/panel" className={'menuIconBlock'}>
+                <img src={panelIcon} alt="panelIcon"/>
                 <span>Панель</span>
             </NavLink>
         </SideBarBlock>
@@ -27,6 +27,7 @@ const SideBarBlock = styled.div`
       margin-right: 21px;
     }
   }
+
   a.active {
     background: #E0F1FF;
     border-left: 1px solid #005FB8;

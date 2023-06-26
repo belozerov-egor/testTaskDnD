@@ -2,6 +2,7 @@ import {VictoryAxis, VictoryChart, VictoryLine} from 'victory';
 import {useEffect} from 'react';
 import {graphThunks} from '../reducers/graphReducer';
 import {useAppDispatch, useAppSelector} from "../hook/hook.ts";
+import {styled} from "styled-components";
 
 export const GraphBlock = () => {
     const graphData = useAppSelector(state => state.graph.graphData);
@@ -28,8 +29,8 @@ export const GraphBlock = () => {
     }));
 
     return (
-        <div>
-            <div style={{width: '100%',  backgroundColor: 'blue'}}>Потребление</div>
+        <Graph>
+            <div style={{width: '100%',  backgroundColor: '#005fb8'}}>Потребление</div>
             <VictoryChart
                 padding={{ top: 0, bottom: 50, left: 50, right: 20 }}
                 height={400}
@@ -42,14 +43,14 @@ export const GraphBlock = () => {
                     style={{
                         axis: { stroke: 'black' },
                         tickLabels: { fontSize: 10 },
-                        grid: { stroke: '#ebebeb' },
+                        grid: { stroke: ' #005fb8' },
                     }}
                 />
                 <VictoryAxis
                     style={{
                         axis: { stroke: 'black' },
                         tickLabels: { fontSize: 10 },
-                        grid: { stroke: '#ebebeb' },
+                        grid: { stroke: ' #005fb8' },
                     }}
                 />
                 <VictoryLine
@@ -57,10 +58,20 @@ export const GraphBlock = () => {
                     x="timestep"
                     y="currentValue"
                     style={{
-                        data: { stroke: '#8884d8' },
+                        data: { stroke: 'black' },
                     }}
                 />
             </VictoryChart>
-        </div>
+        </Graph>
     );
 };
+
+const Graph = styled.div`
+  background-color: #ffffff;
+div{
+padding-left: 15px;
+  width: 100%;
+  backgroundColor: #005fb8;
+  color: #FFFFFF;
+}
+`
