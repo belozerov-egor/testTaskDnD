@@ -6,7 +6,7 @@ import {styled} from "styled-components";
 export const GraphWidget = () => {
     return (
     <ContentBlock>
-        <img src={graph} alt=""/>
+        <img src={graph} alt="graph"/>
     </ContentBlock>
     );
 };
@@ -14,6 +14,9 @@ export const GraphWidget = () => {
 const ContentBlock = styled.div`
 width: 100%;
   height: 100%;
+  img {
+    width: 100%;
+  }
 `
 
 

@@ -13,6 +13,9 @@ export const TableWidget = () => {
 
 const ContentBlock = styled.div`
 width: 100%;
+  img {
+    width: 100%;
+  }
 `
 
 

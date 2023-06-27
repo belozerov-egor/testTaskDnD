@@ -165,11 +165,21 @@ const ContentBlock = styled.div`
   position: relative;
 
   .workBlock {
-    flex: 1;
-    width: 100%;
     display: flex;
-    gap: 15px;
+    flex: 1;
     flex-wrap: wrap;
+    width: 100%;
+    gap: 15px;
+    justify-content: space-between;
+    padding-right: 50px;
+    @media (max-width: 850px) {
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+    li {
+      max-width: 50%;
+    }
   }
 
   .menuBlock {
@@ -183,11 +193,17 @@ const ContentBlock = styled.div`
     position: absolute;
     top: 83px;
     right: 20px;
+    @media (max-width: 850px) {
+      width: 200px;
+      height: 627px;
+     
+    }
+ 
   }
   button {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 2%;
+    right: 1%;
     cursor: pointer;
     background-color: transparent;
   }

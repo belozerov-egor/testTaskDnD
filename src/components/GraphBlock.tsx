@@ -33,7 +33,7 @@ export const GraphBlock = () => {
             <div style={{width: '100%',  backgroundColor: '#005fb8'}}>Потребление</div>
             <VictoryChart
                 padding={{ top: 0, bottom: 50, left: 50, right: 20 }}
-                height={400}
+                height={450}
                 width={900}
                 domainPadding={20}
                 style={{ background: { fill: 'white' } }}
@@ -68,6 +68,11 @@ export const GraphBlock = () => {
 
 const Graph = styled.div`
   background-color: #ffffff;
+  height: 450px;
+  @media screen and (max-width: 840px) {
+    width: 400px;
+    height: 200px;
+  }
 div{
 padding-left: 15px;
   width: 100%;

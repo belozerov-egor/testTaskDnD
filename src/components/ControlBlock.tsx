@@ -53,6 +53,10 @@ const Control = styled.div<ControlBlockType>`
                           : '#FFF'};
   border-radius: 50%;
   overflow: hidden;
+  @media (max-width: 850px) {
+    width: 300px;
+    height: 300px;
+  }
 
   .price {
     color: #005FB8;
@@ -74,6 +78,10 @@ const Control = styled.div<ControlBlockType>`
     height: 100px;
     border-bottom-left-radius: 100%;
     border-bottom-right-radius: 100%;
+    @media (max-width: 850px) {
+      height: 70px;
+      font-size: 20px;
+    }
   }
 
 `;
@@ -91,11 +99,17 @@ const CurrentBlock = styled.div`
     margin-bottom: -30px;
     font-size: 90px;
     font-weight: 400;
+    @media (max-width: 850px) {
+      font-size: 75px;
+    }
   }
 
   & span {
     font-size: 35px;
     font-weight: 400;
+    @media (max-width: 850px) {
+      font-size: 20px;
+    }
   }
 
 `

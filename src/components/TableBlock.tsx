@@ -81,26 +81,37 @@ type TableData = {
     const Table = styled.table`
       display: block;
       width: 600px;
-      
+      @media screen and (max-width: 840px) {
+        width: 400px;
+        font-size: 16px;
+      }
       tbody {
         display: block;
         overflow-y: auto;
-        height: 470px;
+        height: 400px;
+        background-color: white;
       }
       thead{
         background: #005fb8;
-        color: white;}
+        color: white;
+        @media screen and (max-width: 840px) {
+          font-size: 10px;
+        }}
       thead,
       tr {
         display: table;
         width: 100%;
         table-layout: fixed;
+        @media screen and (max-width: 840px) {
+          font-size: 10px;
+        }
       }
       th,
       td {
         padding: 5px;
         text-align: center;
         width: 40%;
+       
         
       }
       th:first-child,

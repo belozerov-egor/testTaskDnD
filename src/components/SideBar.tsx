@@ -17,16 +17,26 @@ const SideBarBlock = styled.div`
   padding-top: 40px;
   width: 17%;
   height: 100vh;
+  @media screen and (max-width: 840px) {
+    width: 5%;
+    span {
+      display: none;
+    }
+  }
 
   .menuIconBlock {
     padding: 10px 0 10px 44px;
     display: flex;
     width: 100%;
+    @media screen and (max-width: 840px) {
+    padding-left: 5px;
+    }
+    }
 
     img {
       margin-right: 21px;
     }
-  }
+  
 
   a.active {
     background: #E0F1FF;
