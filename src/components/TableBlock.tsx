@@ -85,42 +85,53 @@ type TableData = {
         width: 400px;
         font-size: 16px;
       }
+
       tbody {
         display: block;
         overflow-y: auto;
         height: 400px;
         background-color: white;
-      }
-      thead{
-        background: #005fb8;
-        color: white;
         @media screen and (max-width: 840px) {
-          font-size: 10px;
-        }}
-      thead,
-      tr {
-        display: table;
-        width: 100%;
-        table-layout: fixed;
-        @media screen and (max-width: 840px) {
-          font-size: 10px;
+          height: 200px;
         }
       }
-      th,
-      td {
-        padding: 5px;
-        text-align: center;
-        width: 40%;
-       
-        
+    
+
+    thead {
+      background: #005fb8;
+      color: white;
+      @media screen and (max-width: 840px) {
+        font-size: 10px;
       }
-      th:first-child,
-      td:first-child {
-        width: 50%;
+    }
+
+    thead,
+    tr {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+      @media screen and (max-width: 840px) {
+        font-size: 10px;
       }
-      ::-webkit-scrollbar {
-        width: 0;
-        height: 0;
-      }
+    }
+
+    th,
+    td {
+      padding: 5px;
+      text-align: center;
+      width: 40%;
+
+
+    }
+
+    th:first-child,
+    td:first-child {
+      width: 50%;
+    }
+
+    ::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
     `;
 

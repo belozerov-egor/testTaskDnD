@@ -161,8 +161,10 @@ const ContentBlock = styled.div`
   display: flex;
   padding: 20px 20px;
   width: 100%;
+  min-height: 100vh ;
   background-color: #E0F1FF;
   position: relative;
+
 
   .workBlock {
     display: flex;
@@ -172,19 +174,26 @@ const ContentBlock = styled.div`
     gap: 15px;
     justify-content: space-between;
     padding-right: 50px;
-    @media (max-width: 850px) {
+    @media (max-width: 1300px) {
+      flex-wrap: nowrap;
       flex-direction: column;
       align-items: center;
-      gap: 30px;
+      justify-content: flex-start;
     }
+
     li {
-      max-width: 50%;
+      width: 50%;
+      @media (max-width: 1300px) {
+        display: flex;
+        width: 90%;
+        justify-content: center;
+      }
     }
   }
 
   .menuBlock {
     width: 296px;
-    height: 827px;
+    height: 80%;
     border-radius: 15px;
     background-color: #FFF;
     display: flex;
@@ -196,15 +205,18 @@ const ContentBlock = styled.div`
     @media (max-width: 850px) {
       width: 200px;
       height: 627px;
-     
+      right: 27px;
     }
- 
   }
+
   button {
     position: absolute;
     top: 2%;
     right: 1%;
     cursor: pointer;
     background-color: transparent;
+    @media (max-width: 550px) {
+      right: 9%;
+    }
   }
 `;

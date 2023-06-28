@@ -12,12 +12,14 @@ export const Header = () => {
 
 
 const HeaderBlock = styled.div`
-    padding: 23px 24px;
-  display: flex;  
+  padding: 23px 24px;
+  display: flex;
   align-items: center;
+
   img {
     margin-right: 10px;
   }
+
   span {
     font-size: 20px;
     font-weight: 600;

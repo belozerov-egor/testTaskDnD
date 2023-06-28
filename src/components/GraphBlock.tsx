@@ -49,7 +49,7 @@ export const GraphBlock = () => {
                 <VictoryAxis
                     style={{
                         axis: { stroke: 'black' },
-                        tickLabels: { fontSize: 10 },
+                        tickLabels: { fontSize: 11 },
                         grid: { stroke: ' #005fb8' },
                     }}
                 />
@@ -71,7 +71,7 @@ const Graph = styled.div`
   height: 450px;
   @media screen and (max-width: 840px) {
     width: 400px;
-    height: 200px;
+    height: 230px;
   }
 div{
 padding-left: 15px;
