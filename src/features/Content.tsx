@@ -81,7 +81,7 @@ export const Content = () => {
                 updatedBlock.content = <ControlWidget />;
             } else if (block.id === 'table') {
                 updatedBlock.content = <TableWidget />;
-            }else if (block.id === 'graph') {
+            } else if (block.id === 'graph') {
                 updatedBlock.content = <GraphWidget />;
             }
 
@@ -90,6 +90,14 @@ export const Content = () => {
                 updatedBlock,
                 ...blocks.slice(destinationIndex),
             ]);
+        } else if (
+            result.source.droppableId === 'workBlock' &&
+            result.destination.droppableId === 'workBlock'
+        ) {
+            const newBlocks = Array.from(workBlocks);
+            const [removed] = newBlocks.splice(sourceIndex, 1);
+            newBlocks.splice(destinationIndex, 0, removed);
+            setWorkBlocks(newBlocks);
         }
     };
     return (
@@ -173,7 +181,7 @@ const ContentBlock = styled.div`
     width: 100%;
     gap: 15px;
     justify-content: space-between;
-    padding-right: 50px;
+    padding-right: 70px;
     @media (max-width: 1300px) {
       flex-wrap: nowrap;
       flex-direction: column;
@@ -182,7 +190,7 @@ const ContentBlock = styled.div`
     }
 
     li {
-      width: 50%;
+      width: 40%;
       @media (max-width: 1300px) {
         display: flex;
         width: 90%;
