@@ -1,6 +1,6 @@
 import {memo, useEffect, useMemo} from "react";
-import {useAppDispatch, useAppSelector} from "../hook/hook";
-import {tableThunks} from "../reducers/tableReducer";
+import {useAppDispatch, useAppSelector} from "../../common/hook/hook.ts";
+import {tableThunks} from "./tableReducer.ts";
 import {Column, useTable} from "react-table";
 import {styled} from "styled-components";
 

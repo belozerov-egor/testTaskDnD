@@ -1,4 +1,4 @@
-import table from "../../img/table.svg";
+import table from "../img/table.svg";
 import {styled} from "styled-components";
 
 

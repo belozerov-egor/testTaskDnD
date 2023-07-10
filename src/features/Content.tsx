@@ -1,18 +1,18 @@
 import { useState } from "react";
 import { styled } from "styled-components";
-import { ControlBlock } from "./ControlBlock";
-import { TableBlock } from "./TableBlock";
+import { ControlBlock } from "./Control/ControlBlock.tsx";
+import { TableBlock } from "./Table/TableBlock.tsx";
 import {
     DragDropContext,
     Droppable,
     Draggable,
     DropResult,
 } from "react-beautiful-dnd";
-import {TableWidget} from "./widget/TableWidget.tsx";
-import {ControlWidget} from "./widget/ControlWidget.tsx";
-import {GraphWidget} from "./widget/GraphWidget.tsx";
-import {GraphBlock} from "./GraphBlock.tsx";
-import button from "../img/menu.svg"
+import {TableWidget} from "../common/widget/TableWidget.tsx";
+import {ControlWidget} from "../common/widget/ControlWidget.tsx";
+import {GraphWidget} from "../common/widget/GraphWidget.tsx";
+import {GraphBlock} from "./Graph/GraphBlock.tsx";
+import button from "../common/img/menu.svg"
 
 
 

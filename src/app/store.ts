@@ -1,8 +1,8 @@
 import {AnyAction, combineReducers} from "redux";
 import {ThunkAction, ThunkDispatch} from "redux-thunk";
-import {controlReducer} from "../reducers/controlReducer";
-import {tableReducer} from "../reducers/tableReducer";
-import {graphReducer} from "../reducers/graphReducer.ts";
+import {controlReducer} from "../features/Control/controlReducer.ts";
+import {tableReducer} from "../features/Table/tableReducer.ts";
+import {graphReducer} from "../features/Graph/graphReducer.ts";
 import {configureStore} from "@reduxjs/toolkit";
 
 const RootReducers = combineReducers({

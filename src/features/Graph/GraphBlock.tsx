@@ -1,7 +1,7 @@
 import {VictoryAxis, VictoryChart, VictoryLine} from 'victory';
 import {useEffect} from 'react';
-import {graphThunks} from '../reducers/graphReducer';
-import {useAppDispatch, useAppSelector} from "../hook/hook.ts";
+import {graphThunks} from './graphReducer.ts';
+import {useAppDispatch, useAppSelector} from "../../common/hook/hook.ts";
 import {styled} from "styled-components";
 
 export const GraphBlock = () => {

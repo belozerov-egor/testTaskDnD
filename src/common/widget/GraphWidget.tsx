@@ -1,4 +1,4 @@
-import graph from "../../img/graph.svg";
+import graph from "../img/graph.svg";
 import {styled} from "styled-components";
 
 

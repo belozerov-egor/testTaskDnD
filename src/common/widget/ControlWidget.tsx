@@ -1,4 +1,4 @@
-import control from "../../img/control.svg";
+import control from "../img/control.svg";
 import {styled} from "styled-components";
 
 

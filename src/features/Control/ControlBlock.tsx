@@ -1,6 +1,6 @@
 import {memo, useEffect} from "react";
-import {useAppDispatch, useAppSelector} from "../hook/hook";
-import {controlThunks} from "../reducers/controlReducer";
+import {useAppDispatch, useAppSelector} from "../../common/hook/hook.ts";
+import {controlThunks} from "./controlReducer.ts";
 import {styled} from "styled-components";
 
 export const ControlBlock = memo(() => {

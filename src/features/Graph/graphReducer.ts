@@ -1,6 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit"
-import {createAppAsyncThunk} from "../utils/createAppAsyncThunk"
-import {graph} from "../api/api"
+import {createAppAsyncThunk} from "../../common/utils/createAppAsyncThunk.ts"
+import {graph} from "../../api/api.ts"
 
 
 type controlValuesType = {

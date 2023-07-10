@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { createAppAsyncThunk } from "../utils/createAppAsyncThunk"
-import { control } from "../api/api"
+import { createAppAsyncThunk } from "../../common/utils/createAppAsyncThunk.ts"
+import { control } from "../../api/api.ts"
 
 
 type controlValuesType = {
     currentValue: number
         minValue: number
-        maxValue: number                 
+        maxValue: number
 }
 
 type StateType = controlValuesType

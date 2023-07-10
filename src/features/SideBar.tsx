@@ -1,6 +1,6 @@
 import {NavLink} from "react-router-dom";
 import {styled} from "styled-components";
-import panelIcon from "../img/panelIcon.svg";
+import panelIcon from "../common/img/panelIcon.svg";
 
 export const SideBar = () => {
     return (

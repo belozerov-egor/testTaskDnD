@@ -1,8 +1,8 @@
 import {styled} from 'styled-components'
 import './App.css'
-import {Header} from './components/Header'
-import {SideBar} from './components/SideBar'
-import {Content} from './components/Content'
+import {Header} from '../features/Header.tsx'
+import {SideBar} from '../features/SideBar.tsx'
+import {Content} from '../features/Content.tsx'
 import {Routes, Route} from "react-router-dom";
 
 
